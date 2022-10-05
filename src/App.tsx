@@ -2,6 +2,7 @@ import { ChakraProvider, Text, VStack } from "@chakra-ui/react";
 import React from "react";
 import "./App.css";
 import Fibonaci from "./Fibonaci";
+import GridTraveler from "./GridTraveler";
 import InvertBinaryTree from "./InvertBinaryTree";
 import ReverseLinkedList from "./ReverseLinkedList";
 
@@ -21,6 +22,7 @@ function App() {
         <InvertBinaryTree />
         <ReverseLinkedList />
         <Fibonaci />
+        <GridTraveler />
       </VStack>
     </ChakraProvider>
   );

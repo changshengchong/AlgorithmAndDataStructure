@@ -69,6 +69,7 @@ const ReverseLinkedList = () => {
         value={code}
         onChange={(e) => setCode(e.target.value)}
         style={{
+          width: "100%",
           fontSize: 15,
           backgroundColor: "#161b22",
           borderRadius: "1%",

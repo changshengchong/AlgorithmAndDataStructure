@@ -80,6 +80,7 @@ function InvertBinaryTree() {
         value={code}
         onChange={(e) => setCode(e.target.value)}
         style={{
+          width: "100%",
           fontSize: 15,
           borderRadius: "1%",
           backgroundColor: "#161b22",

@@ -23,7 +23,7 @@ const Fibonaci = () => {
       padding="20px"
       borderRadius="md"
     >
-      <Text>Fibonacci number</Text>
+      <Text fontWeight="bold">Fibonacci number</Text>
       <Input
         placeholder="number"
         type="number"
@@ -37,6 +37,7 @@ const Fibonaci = () => {
         value={code}
         onChange={(e) => setCode(e.target.value)}
         style={{
+          width: "100%",
           fontSize: 15,
           borderRadius: "1%",
           backgroundColor: "#161b22",
