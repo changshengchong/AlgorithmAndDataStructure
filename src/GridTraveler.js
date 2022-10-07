@@ -47,7 +47,6 @@ const GridTraveler = () => {
         style={{
           width: "100%",
           fontSize: 15,
-          backgroundColor: "#161b22",
           borderRadius: "1%",
           fontFamily:
             "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",

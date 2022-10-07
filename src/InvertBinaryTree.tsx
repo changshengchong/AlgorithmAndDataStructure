@@ -83,7 +83,6 @@ function InvertBinaryTree() {
           width: "100%",
           fontSize: 15,
           borderRadius: "1%",
-          backgroundColor: "#161b22",
           fontFamily:
             "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
         }}
