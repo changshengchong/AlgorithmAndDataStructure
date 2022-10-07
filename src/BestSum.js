@@ -42,6 +42,8 @@ const BestSum = () => {
       borderRadius="md"
     >
       <Text fontWeight="bold">Best Sum</Text>
+      <Text>Time complexity: O(n^m * m) -> O(n * m^2)</Text>
+      <Text>Space complexity: O(m^2) -> O(m^2)</Text>
       <Text>canSum(7,[2,3]) = {bestSum(7, [2, 3])?.toString() || "null"}</Text>
       <Text>
         canSum(7,[5,3,4,7]) = {bestSum(7, [5, 3, 4, 7])?.toString() || "null"}

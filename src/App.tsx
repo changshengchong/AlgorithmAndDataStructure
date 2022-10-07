@@ -2,6 +2,7 @@ import { ChakraProvider, Text, VStack } from "@chakra-ui/react";
 import React from "react";
 import "./App.css";
 import BestSum from "./BestSum";
+import CanConstruct from "./CanConstruct";
 import CanSum from "./CanSum";
 import Fibonaci from "./Fibonaci";
 import GridTraveler from "./GridTraveler";
@@ -29,6 +30,7 @@ function App() {
         <CanSum />
         <HowSum />
         <BestSum />
+        <CanConstruct />
       </VStack>
     </ChakraProvider>
   );

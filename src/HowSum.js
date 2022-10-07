@@ -35,6 +35,8 @@ const HowSum = () => {
       borderRadius="md"
     >
       <Text fontWeight="bold">How Sum</Text>
+      <Text>Time complexity: O(n^m * m) -> O(n * m^2)</Text>
+      <Text>Space complexity: O(m) -> O(m^2)</Text>
       <Text>howSum(7,[2,3]) = {howSum(7, [2, 3])?.toString() || "null"}</Text>
       <Text>
         howSum(7,[5,3,4,7]) = {howSum(7, [5, 3, 4, 7])?.toString() || "null"}

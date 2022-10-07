@@ -34,6 +34,8 @@ const CanSum = () => {
       borderRadius="md"
     >
       <Text fontWeight="bold">Can Sum</Text>
+      <Text>Time complexity: O(n^m) -> O(m * n)</Text>
+      <Text>Space complexity: O(m) -> O(m)</Text>
       <Text>canSum(7,[2,3]) = {canSum(7, [2, 3]).toString()}</Text>
       <Text>canSum(7,[5,3,4,7]) = {canSum(7, [5, 3, 4, 7]).toString()}</Text>
       <Text>canSum(7,[2,4]) = {canSum(7, [2, 4]).toString()}</Text>
