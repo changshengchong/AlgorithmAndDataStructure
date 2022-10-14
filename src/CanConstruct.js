@@ -41,12 +41,34 @@ const CanConstruct = () => {
     return totalCount;
   };
 
+  const allConstruct = (target, wordBank, memo = {}) => {
+    if (target in memo) return memo[target];
+    if (target === "") return [[]];
+
+    const result = [];
+    for (let word of wordBank) {
+      if (target.indexOf(word) === 0) {
+        const suffix = target.slice(word.length);
+        const suffixWays = allConstruct(suffix, wordBank, memo);
+        const targetWays = suffixWays.map((way) => [word, ...way]);
+        result.push(...targetWays);
+      }
+    }
+
+    memo[target] = result;
+    return result;
+  };
+
   const [code, setCode] = useState(
     'const canConstruct = (target, wordBank, memo = {}) => { \n    if (target in memo) return memo[target]; \n    if (target === "") return true; \n    for (let word of wordBank) { \n      if (target.indexOf(word) === 0) { \n        const suffix = target.slice(word.length); \n        if (canConstruct(suffix, wordBank, memo)) { \n          memo[target] = true; \n          return true; \n        } \n      } \n    } \n \n    memo[target] = false; \n    return false; \n  };'
   );
 
   const [countCode, setCountCode] = useState(
     'const countConstruct = (target, wordBank, memo = {}) => { \n    if (target in memo) return memo[target]; \n    if (target === "") return 1; \n \n    let totalCount = 0; \n \n    for (let word of wordBank) { \n      if (target.indexOf(word) === 0) { \n        const numwaysForRest = countConstruct( \n          target.slice(word.length), \n          wordBank, \n          memo \n        ); \n        totalCount += numwaysForRest; \n      } \n    } \n \n    memo[target] = totalCount; \n    return totalCount; \n  };'
+  );
+
+  const [allCode, setAllCode] = useState(
+    'const allConstruct = (target, wordBank, memo) => { \n    if (target in memo) return memo[target]; \n    if (target === "") return [[]]; \n \n    const result = []; \n    for (let word of wordBank) { \n      if (target.indexOf(word) === 0) { \n        const suffix = target.slice(word.length); \n        const suffixWays = allConstruct(suffix, wordBank, memo); \n        const targetWays = suffixWays.map((way) => [word, ...way]); \n        result.push(...targetWays); \n      } \n    } \n \n    memo[target] = result; \n    return result; \n  }; \n'
   );
 
   return (
@@ -146,6 +168,49 @@ const CanConstruct = () => {
         padding={15}
         value={countCode}
         onChange={(e) => setCountCode(e.target.value)}
+        style={{
+          width: "100%",
+          fontSize: 15,
+          borderRadius: "1%",
+          fontFamily:
+            "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+        }}
+      />
+
+      <Text fontWeight="bold">All Construct</Text>
+      <Text>
+        allConstruct("abcdef", ["ab","abc", "cd", "def", "abcd"]) ={" "}
+        {allConstruct("abcdef", ["ab", "abc", "cd", "def", "abcd"]).join(" / ")}
+      </Text>
+      <Text>
+        allConstruct("skateboard", ["bo","rd", "ate", "t", "ska", "boar"]) ={" "}
+        {allConstruct("skateboard", [
+          "bo",
+          "rd",
+          "ate",
+          "t",
+          "ska",
+          "boar",
+        ]).join(" / ")}
+      </Text>
+      <Text>
+        allConstruct("enterapotentpot", ["a","p", "ent", "enter", "ot", "o",
+        "t"]) ={" "}
+        {allConstruct("enterapotentpot", [
+          "a",
+          "p",
+          "ent",
+          "enter",
+          "ot",
+          "o",
+          "t",
+        ]).join(" / ")}
+      </Text>
+      <CodeEditor
+        language="javascript"
+        padding={15}
+        value={allCode}
+        onChange={(e) => setAllCode(e.target.value)}
         style={{
           width: "100%",
           fontSize: 15,
