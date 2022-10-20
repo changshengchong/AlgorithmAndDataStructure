@@ -11,9 +11,11 @@ class Tree {
 
   invertNode = (node?: Node | null) => {
     if (node) {
-      const temp = this.invertNode(node?.left);
+      const temp = node.left;
       node.left = node.right;
       node.right = temp;
+      this.invertNode(node?.left);
+      this.invertNode(node?.right);
 
       return node;
     }
@@ -58,7 +60,7 @@ function InvertBinaryTree() {
   };
 
   const [code, setCode] = useState(
-    " invertNode = (node?: Node | null) => { \n    if (node) { \n      const temp = this.invertNode(node?.left); \n      node.left = node.right; \n      node.right = temp; \n \n      return node; \n    } \n    return null; \n  };"
+    "invertNode = (node?: Node | null) => { \n    if (node) { \n      const temp = node.left; \n      node.left = node.right; \n      node.right = temp; \n      this.invertNode(node?.left); \n      this.invertNode(node?.right); \n \n      return node; \n    } \n    return null; \n  };"
   );
 
   return (
