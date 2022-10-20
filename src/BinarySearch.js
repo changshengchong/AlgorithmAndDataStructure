@@ -1,5 +1,5 @@
-import { Text, VStack } from "@chakra-ui/react";
-import React, { useRef, useState } from "react";
+import { Input, Text, VStack } from "@chakra-ui/react";
+import React, { useMemo, useRef, useState } from "react";
 import CodeEditor from "@uiw/react-textarea-code-editor";
 
 const BinarySearch = () => {
@@ -23,8 +23,9 @@ const BinarySearch = () => {
     while (start <= end) {
       let mid = Math.floor((end + start) / 2);
 
-      if (arr[mid] === x) return mid;
-      else if (arr[mid] > x) {
+      if (arr[mid] === x) {
+        return mid;
+      } else if (arr[mid] > x) {
         end = mid - 1;
       } else {
         start = mid + 1;
@@ -42,9 +43,12 @@ const BinarySearch = () => {
     "const binarySearchIterative = (arr, x) => { \n    let start = 0; \n    let end = arr.length - 1; \n    while (start <= end) { \n      let mid = Math.floor((end + start) / 2); \n \n      if (arr[mid] === x) return mid; \n      else if (arr[mid] > x) { \n        end = mid - 1; \n      } else { \n        start = mid + 1; \n      } \n    } \n \n    return -1; \n  };"
   );
 
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  const target = 9;
-  const index = binarySearchIterative(arr, target);
+  const [arr] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  const [target, setTarget] = useState(8);
+  const index = useMemo(
+    () => binarySearchIterative(arr, +target),
+    [arr, target]
+  );
 
   return (
     <VStack
@@ -58,6 +62,13 @@ const BinarySearch = () => {
       <Text fontWeight="bold">Binary search</Text>
       <Text>Array: [{arr.toString()}]</Text>
       <Text>Target: {target}</Text>
+      <Input
+        type="number"
+        bgColor="white"
+        value={target}
+        onChange={(e) => setTarget(e.target.value)}
+      ></Input>
+
       <Text>Index: {index}</Text>
       <CodeEditor
         language="typescript"
