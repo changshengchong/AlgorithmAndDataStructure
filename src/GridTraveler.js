@@ -34,7 +34,7 @@ const GridTraveler = () => {
   const e = gridTraveler(18, 18);
 
   const [code, setCode] = useState(
-    " const gridTraveler = (m, n, memo = {}) => { \n    const key = m + n; \n    if (key in memo) return memo[key]; \n    if (m === 1 && n === 1) return 1; \n    if (m === 0 || n === 0) return 0; \n    memo[key] = gridTraveler(m - 1, n, memo) + gridTraveler(m, n - 1, memo); \n    return memo[key]; \n  };"
+    "const gridTraveler = (m, n, memo = {}) => { \n    const key = m + ',' + n; \n    if (key in memo) return memo[key]; \n    if (m === 1 && n === 1) return 1; \n    if (m === 0 || n === 0) return 0; \n    memo[key] = gridTraveler(m - 1, n, memo) + gridTraveler(m, n - 1, memo); \n    return memo[key]; \n  };"
   );
 
   const [tabCode, setTabCode] = useState(
