@@ -21,7 +21,7 @@ const CanSum = () => {
   };
 
   const [code, setCode] = useState(
-    "const canSum = (targetSum, numbers, memo = {}) => { \n    if (targetSum in memo) return memo[targetSum]; \n    if (targetSum === 0) return true; \n    if (targetSum < 0) return false; \n    for (let num of numbers) { \n      const remainder = targetSum - num; \n \n      if (canSum(remainder, numbers, memo) === true) { \n        memo[targetSum] = true; \n        return true; \n      } \n    } \n \n    return false; \n  };"
+    "const canSum = (targetSum, numbers, memo = {}) => { \n    if (targetSum in memo) return memo[targetSum]; \n    if (targetSum === 0) return true; \n    if (targetSum < 0) return false; \n    for (let num of numbers) { \n      const remainder = targetSum - num; \n \n      if (canSum(remainder, numbers, memo) === true) { \n        memo[targetSum] = true; \n        return true; \n      } \n    } \n \n    memo[targetSum] = false; \n    return false; \n  };"
   );
 
   return (
