@@ -2,6 +2,7 @@ import { ChakraProvider, Text, VStack } from "@chakra-ui/react";
 import React from "react";
 import "./App.css";
 import BestSum from "./BestSum";
+import BinarySearch from "./BinarySearch";
 import CanConstruct from "./CanConstruct";
 import CanSum from "./CanSum";
 import Fibonaci from "./Fibonaci";
@@ -17,12 +18,13 @@ function App() {
         bgColor="#8ecdf5"
         padding="2rem"
         width="full"
-        align="center"
+        align="start"
         spacing={5}
       >
         <Text fontWeight="bold" fontSize="20px">
           Algorithm, Data Structure and Dynamic Programming Practices
         </Text>
+        <BinarySearch />
         <InvertBinaryTree />
         <ReverseLinkedList />
         <Fibonaci />

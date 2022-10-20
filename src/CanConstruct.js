@@ -75,7 +75,7 @@ const CanConstruct = () => {
     <VStack
       spacing={1}
       align="start"
-      width="500px"
+      width="full"
       bgColor="blackAlpha.200"
       padding="20px"
       borderRadius="md"
